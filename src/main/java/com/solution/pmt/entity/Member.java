@@ -1,4 +1,4 @@
-package entity;
+package com.solution.pmt.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

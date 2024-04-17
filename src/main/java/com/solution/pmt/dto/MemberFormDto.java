@@ -1,4 +1,4 @@
-package dto;
+package com.solution.pmt.dto;
 
 import jakarta.persistence.*;
 import lombok.Getter;
