@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="~{fragments/Head:: header}"> </head>
+
+<body class="hold-transition sidebar-mini" >
+
+<div class="wrapper">
+    <!-- nav header-->
+    <nav th:replace="fragments/NavBar :: navBar"></nav>
+    <!-- sideBar-->
+    <aside th:replace="fragments/SideBar :: sideBar"></aside>
+    <!-- content -->
+    <div th:replace="fragments/Content :: content_wrapper"></div>
+</div>
+
+
+<!-- -------------------------------------------  -->
+<script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+
+<!-- fontawesome -->
+<script src="https://kit.fontawesome.com/79613ae794.js" crossorigin="anonymous"></script>
+<!-- adminLTE -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<th:block layout:fragment="scrpit">
+    <script th:inline="javascript"></script>
+</th:block>
+</body>
+
+
+</html>
