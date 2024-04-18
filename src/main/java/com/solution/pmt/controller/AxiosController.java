@@ -9,6 +9,6 @@ public class AxiosController {
 
     @GetMapping("/")
     public String mainLayout(){
-        return "layout/Main";
+        return "main/Main";
     }
 }

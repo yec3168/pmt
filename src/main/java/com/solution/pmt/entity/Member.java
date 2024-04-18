@@ -25,8 +25,14 @@ public class Member extends BaseTimeEntity {
 
     private String address;
 
-    private String fileName;
+    private String fileName; // 대표이미지.
 
     private String url;
+
+    private String position; // 직급
+
+    private String during; // 장기근무.
+
+    private int rest; // 휴가.
 
 }
