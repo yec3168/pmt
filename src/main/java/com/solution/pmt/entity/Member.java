@@ -15,8 +15,6 @@ public class Member extends BaseTimeEntity {
 
     private String name;
 
-    private String nickName;
-
     private String email;
 
     private String password;
@@ -28,6 +26,9 @@ public class Member extends BaseTimeEntity {
     private String fileName; // 대표이미지.
 
     private String url;
+
+    /*  아래는 form으로 입력 안받고, 관리자가 지정.*/
+
 
     private String position; // 직급
 
