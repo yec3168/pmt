@@ -11,35 +11,100 @@
             </div>
 
             <!-- card body-->
-            <div class="card-body">
+            <div class="card card-body">
                 <form method="post">
+                    <!-- name , phone--->
                     <div class="row">
                         <div class="col-6">
-                            <div class="form-group">
-                                <label for="exampleInputBorder">Name </label>
-                                <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder="Full Name">
+                            <label th:for="name">Name</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="name" name="name">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                         <div class="col-6">
-                            <div class="form-group">
-                                <label for="exampleInputBorder">Name </label>
-                                <input type="text" class="form-control form-control-border"  placeholder="Full Name">
+                            <label th:for="phone">Phone</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="phone" name="phone">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-phone"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label for="exampleInputBorder">Bottom Border only <code>.form-control-border</code></label>
-                            <input type="text" class="form-control form-control-border" id="exampleInputBorder" placeholder=".form-control-border">
+
+                    <div class="form-group">
+                        <label th:for="email">Email</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="email" name="email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="password">Password</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="password" name="password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="password2">Retype Password</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="password2" name="password2">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label th:for="address">Address</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="address" name="address">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+<!--                    <div class="form-group">-->
+<!--                        <label>Date:</label>-->
+<!--                        <div class="input-group date" id="reservationdate" data-target-input="nearest">-->
+<!--                            <input type="text" class="form-control datetimepicker-input" name = "datefilter">-->
+<!--                            <div class="input-group-append">-->
+<!--                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-8">
 
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-4">
                             <button type="submit" class="btn btn-dark btn-block">Register</button>
                         </div>
 
@@ -50,9 +115,9 @@
                 <!--   다른 방식의 회원가입.-->
                 <div class="social-auth-links text-center">
                     <a href="javascript: alert('준비중입니다.')">
-                        <img class="kakao_login_box" src="/images/kakao_login.png" style="width:250px; height: 38px;margin-bottom:5px">
+                        <img class="kakao_login_box" src="/images/kakao_login.png" style="width:300px; height: 38px;margin-bottom:5px">
                     </a>
-                    <a href="javascript: alert('준비중입니다.')" class="btn btn-block btn-primary" style="padding-left: 1px; font-size: 14px; width:250px; margin-left: auto; margin-right: auto;">
+                    <a href="javascript: alert('준비중입니다.')" class="btn btn-block btn-primary" style="padding-left: 1px; font-size: 14px; width:300px; margin-left: auto; margin-right: auto;">
                         <i class="fab fa-google-plus mr-2" style="font-size: 20px; float: left"></i> Login with Google
                     </a>
                 </div>
@@ -62,5 +127,25 @@
 
         </div>
     </div>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+
+        $(function () {
+            // //Date picker
+            // $('input[name="datefilter"]').datetimepicker({
+            //     autoUpdateInput: false,
+            //     locale: {
+            //         cancelLabel: 'Clear'
+            //     },
+            //     format: 'L'
+            // });
+
+
+
+        })
+
+    </script>
+</th:block>
 </body>
 </html>

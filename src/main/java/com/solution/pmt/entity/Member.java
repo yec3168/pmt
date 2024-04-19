@@ -15,11 +15,11 @@ public class Member extends BaseTimeEntity {
 
     private String name;
 
+    private String phone;
+
     private String email;
 
     private String password;
-
-    private String phone;
 
     private String address;
 
