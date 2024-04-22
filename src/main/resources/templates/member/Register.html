@@ -9,143 +9,164 @@
             <div class="card-header text-center">
                 <a href="/" class="h1"><b>WORK</b>WARE</a>
             </div>
-
             <!-- card body-->
             <div class="card card-body">
                 <form method="post">
-                    <!-- name , phone--->
-                    <div class="row">
-                        <div class="col-6">
-                            <label th:for="name">Name</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="name" name="name">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <span class="fas fa-user"></span>
+                    <div class="bs-stepper linear">
+                    <div class="bs-stepper-header" role="tablist">
+                        <div class="step active" data-target="#method-part">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="method-part" id="method-part-trigger" aria-selected="true">
+                                <span class="bs-stepper-circle">1</span>
+                                <span class="bs-stepper-label">Method</span>
+                            </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#information-part">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
+                                <span class="bs-stepper-circle">2</span>
+                                <span class="bs-stepper-label">Information</span>
+                            </button>
+                        </div>
+                        <div class="line"></div>
+                        <div class="step" data-target="#logins-part">
+                            <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="false" disabled="disabled">
+                                <span class="bs-stepper-circle">3</span>
+                                <span class="bs-stepper-label">Logins</span>
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="bs-stepper-content">
+                        <div id="method-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="method-part-trigger">
+                            <p class="login-box-msg">회원가입 방식을 선택하세요.</p>
+                            <!--   다른 방식의 회원가입.-->
+                            <div class="social-auth-links text-center">
+                                <a href="javascript: alert('준비중입니다.')" class="btn btn-block btn-warning" style="padding-left: 1px; font-size: 14px; width: 300px; margin-left: auto; margin-right: auto;">
+                                    <i class="fas fa-comment mr-2" style="font-size: 20px; float: left"></i> Login with Kakao+
+                                </a>
+                                <a href="javascript: alert('준비중입니다.')" class="btn btn-block btn-danger" style="padding-left: 1px; font-size: 14px; width: 300px;  margin-left: auto; margin-right: auto;">
+                                    <i class="fab fa-google-plus mr-2" style="font-size: 20px; float: left"></i> Login with Google+
+                                </a>
+                            </div>
+                            <div style="padding-left: 1px; text-align: center;">
+                                <button class="btn btn-outline-primary" type="button" onclick="stepper.next()" style="font-size: 14px; width: 300px;">회원가입</button>
+                            </div>
+                            <div style="padding-left: 1px; font-size: 14px; width: 300px;  margin-left: auto; margin-right: auto;">
+                                <a href="/member/login" class="text-center float-right" >I already have a membership</a>
+                            </div>
+
+                        </div>
+                        <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                            <div class="row">
+                                <label th:for="photo" class="col-12">Photo</label>
+                                <div class="card card-outline card-secondary col-4">
+                                    <div class="card-body">
+                                        <img src="/images/default_profile.png" width="200px" height="200px" >
+                                    </div>
+                                    <div class="card-footer custom-file" style="margin-bottom: 5px;">
+                                        <input type="file" class="custom-file-input" id="photofile">
+                                        <label class="custom-file-label" for="photofile">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <p>대표이미지는 나중에 수정할 수 있습니다.</p>
+                                    <p><strong>JPG, PNG, JPEG 파일만 넣어주세요.</strong></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label th:for="name">Name</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="name" name="name">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <label th:for="phone">Phone</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="phone" name="phone">
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <span class="fas fa-phone"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-6">
-                            <label th:for="phone">Phone</label>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" id="phone" name="phone">
-                                <div class="input-group-append">
-                                    <div class="input-group-text">
-                                        <span class="fas fa-phone"></span>
+                            <div class="form-group">
+                                <label th:for="address">Address</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="address" name="address">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <button class="btn btn-primary" type="button"onclick="stepper.previous()">Previous</button>
+                            <button class="btn btn-primary" type="button" onclick="stepper.next()">Next</button>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label th:for="email">Email</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="email" name="email">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
+                        <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="form-group">
+                                <label th:for="email">Email</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="email" name="email">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-envelope"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label th:for="password">Password</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="password" name="password">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
+                            <div class="form-group">
+                                <label th:for="password">Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="password" name="password">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label th:for="password2">Retype Password</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="password2" name="password2">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
+                            <div class="form-group">
+                                <label th:for="password2">Retype Password</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="password2" name="password2">
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <button class="btn btn-primary" type="button" onclick="stepper.previous()">Previous</button>
+                            <button class="btn btn-primary" onclick="stepper.next()">Submit</button>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label th:for="address">Address</label>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="address" name="address">
-                            <div class="input-group-append">
-                                <div class="input-group-text">
-                                    <span class="fas fa-lock"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-<!--                    <div class="form-group">-->
-<!--                        <label>Date:</label>-->
-<!--                        <div class="input-group date" id="reservationdate" data-target-input="nearest">-->
-<!--                            <input type="text" class="form-control datetimepicker-input" name = "datefilter">-->
-<!--                            <div class="input-group-append">-->
-<!--                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-
-
-
-                    <div class="row">
-                        <div class="col-8">
-
-                        </div>
-
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-dark btn-block">Register</button>
-                        </div>
-
-                    </div>
-                </form>
-
-
-                <!--   다른 방식의 회원가입.-->
-                <div class="social-auth-links text-center">
-                    <a href="javascript: alert('준비중입니다.')">
-                        <img class="kakao_login_box" src="/images/kakao_login.png" style="width:300px; height: 38px;margin-bottom:5px">
-                    </a>
-                    <a href="javascript: alert('준비중입니다.')" class="btn btn-block btn-primary" style="padding-left: 1px; font-size: 14px; width:300px; margin-left: auto; margin-right: auto;">
-                        <i class="fab fa-google-plus mr-2" style="font-size: 20px; float: left"></i> Login with Google
-                    </a>
                 </div>
-                <a href="/member/login" class="text-center">I already have a membership</a>
+                </form>
             </div>
-
 
         </div>
     </div>
 
-<th:block layout:fragment="script">
-    <script th:inline="javascript">
 
-        $(function () {
-            // //Date picker
-            // $('input[name="datefilter"]').datetimepicker({
-            //     autoUpdateInput: false,
-            //     locale: {
-            //         cancelLabel: 'Clear'
-            //     },
-            //     format: 'L'
-            // });
+    <!-- script -->
+    <th:block th:replace="fragments/Script :: script"></th:block>
 
+    <script type="text/javascript">
+        let stepper = new Stepper(document.querySelector(".bs-stepper"))
 
-
-        })
 
     </script>
-</th:block>
+
 </body>
+
 </html>

@@ -12,4 +12,9 @@ public class MailController {
     public String list(){
         return "mail/List";
     }
+
+    @GetMapping("/write")
+    public String write(){
+        return "mail/Write";
+    }
 }

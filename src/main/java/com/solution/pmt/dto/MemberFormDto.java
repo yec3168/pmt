@@ -9,19 +9,11 @@ import lombok.Setter;
 public class MemberFormDto {
 
     private String name;
-
-    private String nickName;
-
-    private String email;
-
-    private String password;
-
-    private String phone;
-
     private String address;
-
-    private String fileName;
-
+    private String phone;
+    private String email;
+    private String password;
+    private String photo;
     private String url;
 
 }

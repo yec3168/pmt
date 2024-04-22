@@ -4,36 +4,33 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @NoArgsConstructor
-public class Member extends BaseTimeEntity {
+public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Long id;
 
+    /* form에서 받아올 것*/
     private String name;
-
+    private String department_id; //부서명
+    private String rank;
+    private String address;
     private String phone;
 
     private String email;
-
     private String password;
 
-    private String address;
+    private LocalDateTime hireDate; //입사일
+    private LocalDateTime retireDate; // 퇴사일
 
-    private String fileName; // 대표이미지.
-
+    private String photo;
     private String url;
 
-    /*  아래는 form으로 입력 안받고, 관리자가 지정.*/
-
-
-    private String position; // 직급
-
-    private String during; // 장기근무.
-
-    private int rest; // 휴가.
+    private int annual; // 연차
 
 }
