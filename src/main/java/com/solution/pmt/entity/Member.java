@@ -1,15 +1,16 @@
 package com.solution.pmt.entity;
 
+import com.solution.pmt.dto.MemberFormDto;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 의미 없는 객체의 생성 제한.
 public class Member {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
@@ -32,5 +33,14 @@ public class Member {
     private String url;
 
     private int annual; // 연차
+
+    @Builder
+    public Member(MemberFormDto memberFormDto){
+        this.name = memberFormDto.getName();
+        this.address = memberFormDto.getAddress();
+        this.phone = memberFormDto.getPhone();
+        this.email = memberFormDto.getEmail();
+        this.password = memberFormDto.getPassword();
+    }
 
 }
