@@ -3,13 +3,14 @@ package com.solution.pmt.dto;
 import lombok.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 //@Builder
 public class RegisterFormDto {
 
     private String name;
-    private String address;
     private String phone;
+    private String address;
     private String email;
     private String password;
     private String photo;

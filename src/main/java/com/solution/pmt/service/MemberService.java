@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,6 +19,9 @@ public class MemberService implements UserDetailsService {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private FileService fileService;
@@ -38,7 +42,7 @@ public class MemberService implements UserDetailsService {
      **/
     public Member save(RegisterFormDto registerFormDto, MultipartFile photoFile){
         String photo = null, url = null;
-        if(photoFile != null) {
+        if(!photoFile.isEmpty()) {
             List<String> response = fileService.uploadFile(photoFile, "/user");
             photo = response.get(0);
             url = response.get(1);
@@ -48,7 +52,7 @@ public class MemberService implements UserDetailsService {
                 .phone(registerFormDto.getPhone())
                 .address(registerFormDto.getAddress())
                 .email(registerFormDto.getEmail())
-                .password(registerFormDto.getPassword())
+                .password(passwordEncoder.encode(registerFormDto.getPassword()))
                 .photo(photo)
                 .url(url)
                 .build();

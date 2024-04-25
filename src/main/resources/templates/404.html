@@ -26,18 +26,18 @@
                 <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
                 <p>
                     We could not find the page you were looking for.
-                    Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+                    Meanwhile, you may <a href="/">return to Main</a> wwwwww
                 </p>
-                <form class="search-form">
-                    <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
+<!--                <form class="search-form">-->
+<!--                    <div class="input-group">-->
+<!--                        <input type="text" name="search" class="form-control" placeholder="Search">-->
+<!--                        <div class="input-group-append">-->
+<!--                            <button type="submit" name="submit" class="btn btn-warning"><i class="fas fa-search"></i>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                </form>
+<!--                </form>-->
             </div>
 
         </div>
@@ -46,7 +46,13 @@
 </div>
 <th:block layout:fragment="script">
     <script type="text/javascript">
-
+        $(document).ready(function() {
+            let message = "[[${msg}]]";
+            if (message != "") {
+                alert(message);
+            }else {
+            }
+        })
 
 
     </script>

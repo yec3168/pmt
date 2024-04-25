@@ -11,7 +11,7 @@
         </div>
         <!-- card body-->
         <div class="card card-body">
-            <form id="registerForm" method="post" enctype="multipart/form-data" th:object="${memberFormDto}">
+            <form id="registerForm" method="post" enctype="multipart/form-data" th:object="${registerFormDto}">
                 <div class="bs-stepper linear">
                     <div class="bs-stepper-header" role="tablist">
                         <div class="step active" data-target="#method-part">
@@ -61,7 +61,7 @@
                             <div class="row">
                                 <div class="card card-outline card-secondary col-12">
                                     <div class="card-header">
-                                        <label>Photo</<label>
+                                        <label>Photo</label>
                                     </div>
                                     <div class="card-body row">
                                         <div class="col-3">

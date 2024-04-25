@@ -29,19 +29,20 @@ public class MemberController {
     // 회원가입
     @GetMapping("/create")
     public String signUp(Model model){
-        model.addAttribute("memberFormDto", new RegisterFormDto());
+        model.addAttribute("registerFormDto", new RegisterFormDto());
         return "member/Register";
     }
 
     @PostMapping("/create")
-    public String signU(@Valid RegisterFormDto registerFormDto,
+    public String signUp(RegisterFormDto registerFormDto,
                         @RequestParam("photoFile") MultipartFile photoFile,
                         Model model){
         System.out.println("memberFormDto.getName() = " + registerFormDto.getName());
 
         Member user = memberService.save(registerFormDto, photoFile);
         if(user == null){
-            return "redirect:/404.html";
+            model.addAttribute("msg", "회원가입에 실패했습니다.");
+            return "redirect:/error";
         }
         return "redirect:/";
     }
