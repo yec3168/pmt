@@ -3,6 +3,8 @@ package com.solution.pmt.service;
 import com.solution.pmt.dto.RegisterFormDto;
 import com.solution.pmt.entity.Member;
 import com.solution.pmt.repository.MemberRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,10 +13,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MemberService implements UserDetailsService {
 
     @Autowired
@@ -25,7 +30,9 @@ public class MemberService implements UserDetailsService {
 
     @Autowired
     private FileService fileService;
-    
+
+    private final Map<String, Member> userRegistry = new HashMap<>();
+
     /* 회원 찾기*/
     public Member findMember(Long id){
         Optional<Member> op =memberRepository.findById(id);
@@ -59,10 +66,16 @@ public class MemberService implements UserDetailsService {
         memberRepository.save(user);
         return user;
     }
+//    @PostConstruct
+//    public void init(){
+//        userRegistry.put("user", new )
+//    }
 
     /* 로그인시 작동하는 메소드*/
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public Member loadUserByUsername(String email) throws UsernameNotFoundException {
+        Member user = memberRepository.findByEmail(email);
+        System.out.println(user.getEmail());
+        return memberRepository.findByEmail(email);
     }
 }

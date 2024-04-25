@@ -1,5 +1,6 @@
 package com.solution.pmt.dto;
 
+import com.solution.pmt.entity.Member;
 import lombok.*;
 
 @Getter
@@ -13,35 +14,26 @@ public class RegisterFormDto {
     private String address;
     private String email;
     private String password;
-    private String photo;
-    private String url;
 
 //
 //    public MemberFormDto(String name, String address, String phone,
-//                         String email, String password, String photo, String url){
+//                         String email, String password){
 //        this.name = name;
 //        this.address = address;
 //        this.phone = phone;
 //        this.email = email;
 //        this.password = password;
-//        this.photo =photo;
-//        this.url =url;
 //    }
 //
-//    public MemberFormDto toDto(String name, String address, String phone,
-//                         String email, String password, String photo, String url){
-//        MemberFormDto memberFormDto = MemberFormDto.builder()
-//                .name(name)
-//                .address(address)
-//                .phone(phone)
-//                .email(email)
-//                .password(password)
-//                .photo(photo)
-//                .url(url)
-//                .build();
-//
-//        return memberFormDto;
-//    }
+    public Member toEntity(){
+        return Member.builder()
+                .name(name)
+                .phone(phone)
+                .address(address)
+                .email(email)
+                .password(password)
+                .build();
+    }
 
 
 }
