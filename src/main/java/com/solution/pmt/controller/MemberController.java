@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/member")
 public class MemberController {
@@ -45,6 +47,13 @@ public class MemberController {
             return "redirect:/error";
         }
         return "redirect:/";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Principal principal, Model model){
+        Member user = memberService.findMember(principal.getName());
+        model.addAttribute("member", user);
+        return "member/Profile";
     }
     
 }

@@ -80,13 +80,21 @@
             </ul>
 
             <!--  하단 User profile-->
-            <div class="sidebar-custom" >
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex" sec:authorize="isAuthenticated()">
+            <div class="sidebar-custom " >
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex dropup" sec:authorize="isAuthenticated()">
                     <div class="image">
                         <img src="images/work_ware.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block" sec:authentication="name" ></a>
+                        <a class="d-block dropdown-toggle dropdown-toggle-split" id="sidebarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <span sec:authentication="name"></span>
+                        </a>
+                        <ul class="dropdown-menu py-0" aria-labelledby="sidebarDropdown">
+                            <li><a class="dropdown-item" href="#">Project List</a></li>
+                            <li><a class="dropdown-item" href="#">###</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="#">###</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex" sec:authorize="isAnonymous()">

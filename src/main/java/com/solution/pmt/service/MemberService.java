@@ -41,6 +41,13 @@ public class MemberService implements UserDetailsService {
         }
         else return null;
     }
+    public Member findMember(String email){
+        Optional<Member> op =memberRepository.findByEmail(email);
+        if(op.isPresent()){
+            return op.get();
+        }
+        else return null;
+    }
 
 
     /* 회원 저장*/
@@ -74,8 +81,6 @@ public class MemberService implements UserDetailsService {
     /* 로그인시 작동하는 메소드*/
     @Override
     public Member loadUserByUsername(String email) throws UsernameNotFoundException {
-        Member user = memberRepository.findByEmail(email);
-        System.out.println(user.getEmail());
-        return memberRepository.findByEmail(email);
+        return findMember(email);
     }
 }
