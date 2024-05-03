@@ -28,7 +28,7 @@ public class Member implements UserDetails {
     private String photo;
     private String url;
 
-    /*admin만 수정 가능.*/
+    /*admin만 수정 가능.*/   // admin 구현 안했으니 일단 기본 값지정. user가 수정하도록 지정.
     private LocalDateTime hireDate; //입사일  // admin만 수정
     private LocalDateTime retireDate; // 퇴사일
     private String department_name; //부서명 (솔루션사업부, erp사업부, si사업부, 경영지원실, 교육사업부...)
@@ -84,3 +84,4 @@ public class Member implements UserDetails {
         return true;
     }
 }
+

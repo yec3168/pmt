@@ -25,15 +25,15 @@ public class RegisterFormDto {
 //        this.password = password;
 //    }
 //
-    public Member toEntity(){
-        return Member.builder()
-                .name(name)
-                .phone(phone)
-                .address(address)
-                .email(email)
-                .password(password)
-                .build();
-    }
+//    public Member toEntity(){
+//        return Member.builder()
+//                .name(name)
+//                .phone(phone)
+//                .address(address)
+//                .email(email)
+//                .password(password)
+//                .build();
+//    }
 
 
 }
